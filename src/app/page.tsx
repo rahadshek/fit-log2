@@ -1,10 +1,10 @@
-import NavBarPage from "@/componet/home/NavBar";
-import React from "react";
+import Banner from "@/componet/shear/Banner";
+import Myplan from "./plan/page";
 
 const page = () => {
   return (
     <div>
-      <h1>argnkaj</h1>
+      <Banner/>
     </div>
   );
 };
