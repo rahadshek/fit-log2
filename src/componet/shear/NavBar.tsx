@@ -29,7 +29,7 @@ const NavBarPage = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm  border-b border-gray-600">
+    <div className="navbar bg-base-100 shadow-sm  border-b border-gray-600 sticky top-0 z-50 ">
       <div className=" container mx-auto flex min-h-20 items-center justify-between px-4">
         <div className="navbar-start">
           <div className="dropdown">
@@ -61,19 +61,31 @@ const NavBarPage = () => {
           <Link href={"/"}>
             <div className="flex gap-2  ">
               <Image src={logo} alt="logo" width={40} height={40} />
-              <h2 className=" btn-ghost text-xl font-semibold hidden lg:block ">FITLOG</h2>
+              <h2 className=" btn-ghost text-xl font-semibold hidden lg:block ">
+                FITLOG
+              </h2>
             </div>
           </Link>
         </div>
         <div className=" navbar-center hidden lg:flex">
           <ul className="flex justify-between gap-4 "> {links}</ul>
         </div>
-        <div className="navbar-end gap-2">
-          <a className="btn">
-            Plan <span>0</span>{" "}
+        <div className="navbar-end gap-3">
+          <a className="flex items-center gap-2 text-gray-400 ">
+            Plan{" "}
+            <span
+              className={` text-black rounded-full px-1 flex justify-center items-center h-5 w-5  bg-[#b7e707] text-xs`}
+            >
+              0
+            </span>{" "}
           </a>
-          <a className="btn">
-            Saved <span>0</span>
+          <a className="flex items-center gap-1 text-gray-400 ">
+            Save{" "}
+            <span
+              className={`  rounded-full px-1 flex justify-center items-center h-5 w-5 bg-black text-white text-xs `}
+            >
+              0
+            </span>{" "}
           </a>
         </div>
       </div>

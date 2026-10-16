@@ -1,10 +1,11 @@
 import Banner from "@/componet/shear/Banner";
-import Myplan from "./plan/page";
+import WorkoutPage from "./workout/page";
 
 const page = () => {
   return (
     <div>
       <Banner/>
+      <WorkoutPage/>
     </div>
   );
 };
