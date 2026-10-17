@@ -3,6 +3,7 @@ import Image from "next/image";
 import logo from "@/assets/logo.png";
 import NaveLink from "./NaveLink";
 import Plan from "./count/Plan";
+import Save from "./count/Save";
 
 const NavBarPage = () => {
   return (
@@ -49,14 +50,7 @@ const NavBarPage = () => {
         </div>
         <div className="navbar-end gap-3">
          <Plan />
-          <a className="flex items-center gap-1 text-gray-400 ">
-            Save{" "}
-            <span
-              className={`  rounded-full px-1 flex justify-center items-center h-5 w-5 bg-black text-white text-xs `}
-            >
-              0
-            </span>{" "}
-          </a>
+         <Save />
         </div>
       </div>
     </div>

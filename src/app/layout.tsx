@@ -6,7 +6,7 @@ import Footer from "@/componet/home/Footer";
 import { Suspense } from "react";
 import FitProvider from "@/context/FitProvider";
 import { ToastContainer } from "react-toastify";
-
+import "react-toastify/dist/ReactToastify.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,15 +31,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-       <FitProvider>
-         <Suspense fallback="">
+        <FitProvider>
+          <Suspense fallback="">
             <NavBarPage></NavBarPage>
           </Suspense>
 
           <main>{children}</main>
           <Footer></Footer>
-       </FitProvider>
-       <ToastContainer />
+        </FitProvider>
+        <ToastContainer
+          position="top-left"
+          autoClose={3000}
+          theme="dark"
+          newestOnTop
+          style={{ top: "120px" }}
+        />
       </body>
     </html>
   );
