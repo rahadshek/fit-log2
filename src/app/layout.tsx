@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import NavBarPage from "@/componet/shear/NavBar";
+import NavBarPage from "@/componet/shear/nave/NavBar";
 import Footer from "@/componet/home/Footer";
 import { Suspense } from "react";
 
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Suspense fallback=''>
+        <Suspense fallback="">
           <NavBarPage></NavBarPage>
         </Suspense>
 

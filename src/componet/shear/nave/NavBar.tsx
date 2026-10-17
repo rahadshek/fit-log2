@@ -1,33 +1,9 @@
-"use client";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/assets/logo.png";
-import { usePathname } from "next/navigation";
+import NaveLink from "./NaveLink";
 
-const NavBarPage =  () => {
-  const pathTheme =  usePathname();
-
-  const links = (
-    <>
-      <li>
-        <Link
-          href={"/workout"}
-          className={` rounded-xl px-3 py-1  ${pathTheme === "/workout" ? "bg-[#5d7449] text-[#C2F800] font-semibold" : "text-gray-400"}`}
-        >
-          Workouts
-        </Link>
-      </li>
-      <li>
-        <Link
-          href={"/plan"}
-          className={` rounded-xl px-3 py-1  ${pathTheme === "/plan" ? "bg-[#5d7449] text-[#C2F800] font-semibold" : "text-gray-400"}`}
-        >
-          My Plan
-        </Link>
-      </li>
-    </>
-  );
-
+const NavBarPage = () => {
   return (
     <div className="navbar bg-[#0f0f0f] shadow-sm  border-b border-gray-600 sticky top-0 z-50 ">
       <div className=" container mx-auto flex min-h-20 items-center justify-between px-4">
@@ -55,7 +31,7 @@ const NavBarPage =  () => {
               tabIndex={-1}
               className="menu menu-sm dropdown-content bg-gray-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
-              {links}
+              {<NaveLink />}
             </ul>
           </div>
           <Link href={"/"}>
@@ -68,7 +44,7 @@ const NavBarPage =  () => {
           </Link>
         </div>
         <div className=" navbar-center hidden lg:flex">
-          <ul className="flex justify-between gap-4 "> {links}</ul>
+          <ul className="flex justify-between gap-4 "> {<NaveLink />}</ul>
         </div>
         <div className="navbar-end gap-3">
           <a className="flex items-center gap-2 text-gray-400 ">
