@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import banner from "@/assets/banner.png";
+import Link from "next/link";
 
 const Banner = () => {
   return (
@@ -19,10 +20,11 @@ const Banner = () => {
             FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
             into today's plan, and watch the week's work add up.
           </p>
-
-          <button className="group inline-flex items-center justify-center gap-2 rounded-lg bg-[#c2f800] px-5 py-3 font-semibold text-black transition-all duration-300 cursor-pointer hover:scale-105 hover:bg-[#d4ff33] hover:shadow-[0_0_25px_rgba(194,248,0,0.25)] active:scale-95">
-            BROWSE WORKOUTS
-          </button>
+          <Link href={"/propular"}>
+            <button className="group inline-flex items-center justify-center gap-2 rounded-lg bg-[#c2f800] px-5 py-3 font-semibold text-black transition-all duration-300 cursor-pointer hover:scale-105 hover:bg-[#d4ff33] hover:shadow-[0_0_25px_rgba(194,248,0,0.25)] active:scale-95">
+              BROWSE WORKOUTS
+            </button>
+          </Link>
         </div>
 
         <div className="w-full min-w-0 lg:w-1/2">

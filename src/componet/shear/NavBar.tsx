@@ -4,15 +4,15 @@ import Image from "next/image";
 import logo from "@/assets/logo.png";
 import { usePathname } from "next/navigation";
 
-const NavBarPage = () => {
-  const pathTheme = usePathname();
+const NavBarPage =  () => {
+  const pathTheme =  usePathname();
 
   const links = (
     <>
       <li>
         <Link
-          href={"/"}
-          className={` rounded-xl px-3 py-1  ${pathTheme === "/" ? "bg-[#5d7449] text-[#C2F800] font-semibold" : "text-gray-400"}`}
+          href={"/workout"}
+          className={` rounded-xl px-3 py-1  ${pathTheme === "/workout" ? "bg-[#5d7449] text-[#C2F800] font-semibold" : "text-gray-400"}`}
         >
           Workouts
         </Link>
@@ -29,7 +29,7 @@ const NavBarPage = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm  border-b border-gray-600 sticky top-0 z-50 ">
+    <div className="navbar bg-[#0f0f0f] shadow-sm  border-b border-gray-600 sticky top-0 z-50 ">
       <div className=" container mx-auto flex min-h-20 items-center justify-between px-4">
         <div className="navbar-start">
           <div className="dropdown">
