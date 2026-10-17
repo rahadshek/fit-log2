@@ -13,3 +13,15 @@ export interface IWorkout {
   description: string;
   instructions: string[];
 }
+
+export interface IFitContext {
+  addWorkout: IWorkout[];
+  setAddWorkout: React.Dispatch<React.SetStateAction<IWorkout[]>>;
+  saveWorkout: IWorkout[];
+  setSaveWorkout: React.Dispatch<React.SetStateAction<IWorkout[]>>;
+}
+
+export interface IProps {
+  workout: IWorkout;
+}
+

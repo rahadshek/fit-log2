@@ -1,15 +1,16 @@
 import { IWorkout } from "@/types/page";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { BsCalendarPlus } from "react-icons/bs";
-import { FaRegBookmark } from "react-icons/fa";
+
+import AddWorkout from "@/componet/workoutbutton/AddWorkout";
+import SaveWorkout from "@/componet/workoutbutton/SaveWorkout";
 
 interface IPramasProps {
   params: Promise<{ workoutId: string }>;
 }
 
 const getWorkout = async (): Promise<IWorkout[]> => {
-  const res = await fetch("https://api.api-store.workers.dev/api/fitlog/", {
+  const res = await fetch(`https://api.api-store.workers.dev/api/fitlog/`, {
     cache: "force-cache",
   });
 
@@ -17,14 +18,17 @@ const getWorkout = async (): Promise<IWorkout[]> => {
     throw new Error("Failed to fetch workouts");
   }
 
-  return res.json();
+  const data: IWorkout[] = await res.json();
+  return data;
 };
 
 const WorkoutDetailsPage = async ({ params }: IPramasProps) => {
   const { workoutId } = await params;
   const workouts = await getWorkout();
 
-  const workout = workouts.find((item) => item.id === Number(workoutId));
+  const workout = workouts.find(
+    (item: IWorkout) => String(item.id) === String(workoutId),
+  );
 
   if (!workout) {
     notFound();
@@ -129,12 +133,8 @@ const WorkoutDetailsPage = async ({ params }: IPramasProps) => {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <button className="flex-1 flex items-center justify-center gap-3 rounded-xl bg-[#ccff00] py-1 text-black font-bold text-lg  shadow-lg hover:bg-[#b8e600] active:scale-95 transition-all cursor-pointer">
-              <BsCalendarPlus className="text-xl" /> Add to today's plan
-            </button>
-            <button className="flex-1 flex items-center justify-center gap-3 rounded-xl bg-transparent border-2 border-gray-700 text-white font-bold text-lg  py-1 hover:bg-gray-800 hover:border-gray-600 active:scale-95 transition-all cursor-pointer ">
-              <FaRegBookmark className="text-lg" /> Save for later
-            </button>
+            <AddWorkout workout={workout} ></AddWorkout>
+            <SaveWorkout workout = {workout} ></SaveWorkout>
           </div>
         </div>
       </div>

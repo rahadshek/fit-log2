@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "@/assets/logo.png";
 import NaveLink from "./NaveLink";
+import Plan from "./count/Plan";
 
 const NavBarPage = () => {
   return (
@@ -47,14 +48,7 @@ const NavBarPage = () => {
           <ul className="flex justify-between gap-4 "> {<NaveLink />}</ul>
         </div>
         <div className="navbar-end gap-3">
-          <a className="flex items-center gap-2 text-gray-400 ">
-            Plan{" "}
-            <span
-              className={` text-black rounded-full px-1 flex justify-center items-center h-5 w-5  bg-[#b7e707] text-xs`}
-            >
-              0
-            </span>{" "}
-          </a>
+         <Plan />
           <a className="flex items-center gap-1 text-gray-400 ">
             Save{" "}
             <span
