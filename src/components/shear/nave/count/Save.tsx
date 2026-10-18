@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { FitContext } from "@/context/FitProvider";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -22,7 +22,7 @@ const Save = () => {
       >
         Save{" "}
         <span
-          className={`  rounded-full px-1 flex justify-center items-center h-5 w-5 bg-black text-white text-xs `}
+          className={`  border border-gray-600 rounded-full px-1 flex justify-center items-center h-5 w-5 bg-black text-white text-xs `}
         >
           {saveWorkout.length}
         </span>{" "}
