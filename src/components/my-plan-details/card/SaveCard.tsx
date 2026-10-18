@@ -1,31 +1,30 @@
-import { IPlan } from '@/types/page';
-import Link from 'next/link';
-import React, { useContext } from 'react';
-import { FaStar } from 'react-icons/fa';
-import { IoMdCheckmark, IoMdTime } from 'react-icons/io';
-import { IoCloseSharp } from 'react-icons/io5';
-import { TbFlameFilled } from 'react-icons/tb';
-import Image from 'next/image';
-import { FitContext } from '@/context/FitProvider';
+import { IPlan } from "@/types/page";
+import Link from "next/link";
+import React, { useContext } from "react";
+import { FaStar } from "react-icons/fa";
+import { IoMdCheckmark, IoMdTime } from "react-icons/io";
+import { IoCloseSharp } from "react-icons/io5";
+import { TbFlameFilled } from "react-icons/tb";
+import Image from "next/image";
+import { FitContext } from "@/context/FitProvider";
+import { toast } from "react-toastify";
 
+const SaveCard = ({ add }: IPlan) => {
+  const { id, image, name, equipment, duration, rating, caloriesBurned } = add;
+  const contextPlan = useContext(FitContext);
 
-const SaveCard = ({add}:IPlan) => {
-    const { id, image, name, equipment, duration, rating, caloriesBurned } = add;
-     const contextPlan = useContext(FitContext);
-      
-      if (!contextPlan) {
-        throw new Error("PlanCard must be inside FitProvider");
-      }
-      
-      const { setSaveWorkout } = contextPlan;
-      const handleRemove = (id:number) => {
+  if (!contextPlan) {
+    throw new Error("PlanCard must be inside FitProvider");
+  }
+
+  const { setSaveWorkout } = contextPlan;
+  const handleRemove = (id: number) => {
     // console.log('add there',add)
-    setSaveWorkout((plan) =>
-      plan.filter((item) => item.id !== id )
-    );
+    setSaveWorkout((plan) => plan.filter((item) => item.id !== id));
+    toast.error("Remove from save");
   };
-    return (
-       <div className="group flex flex-col gap-5 rounded-2xl border border-white/10 bg-[#15171d] p-4 transition-all duration-300 hover:border-[#ccff00]/40 hover:bg-[#191b22] sm:p-5 lg:flex-row lg:items-center lg:justify-between">
+  return (
+    <div className="group flex flex-col gap-5 rounded-2xl border border-white/10 bg-[#15171d] p-4 transition-all duration-300 hover:border-[#ccff00]/40 hover:bg-[#191b22] sm:p-5 lg:flex-row lg:items-center lg:justify-between">
       {/* Workout Information */}
       <div className="flex min-w-0 flex-1 items-center gap-4 sm:gap-5">
         {/* Workout Image */}
@@ -78,15 +77,6 @@ const SaveCard = ({add}:IPlan) => {
 
         <button
           type="button"
-          className="flex min-h-10 flex-1 items-center justify-center gap-1.5 rounded-full bg-[#ccff00] px-3 py-2 text-sm font-bold text-black transition-all hover:bg-[#b8e600] active:scale-95 sm:flex-none sm:px-4"
-        >
-          <IoMdCheckmark className="text-lg" />
-          Mark as Done
-        </button>
-
-       
-        <button
-          type="button"
           onClick={() => handleRemove(add.id)}
           aria-label={`Remove ${name} from plan`}
           className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 text-gray-400 transition-all hover:border-red-500/40 hover:bg-red-500/10 hover:text-red-400 cursor-pointer"
@@ -95,7 +85,7 @@ const SaveCard = ({add}:IPlan) => {
         </button>
       </div>
     </div>
-    );
+  );
 };
 
 export default SaveCard;

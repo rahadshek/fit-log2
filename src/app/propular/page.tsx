@@ -46,15 +46,6 @@ const Hworkout = async () => {
           ))}
         </div>
 
-        {/* Empty State
-        {fits.length === 0 && (
-          <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-16 text-center">
-            <h3 className="text-xl font-bold">No workouts found</h3>
-            <p className="mt-2 text-gray-400">
-              Please check back later for available workouts.
-            </p>
-          </div>
-        )} */}
       </div>
     </section>
   );

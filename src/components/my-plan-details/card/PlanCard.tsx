@@ -1,4 +1,4 @@
-import { IPlan, } from "@/types/page";
+import { IPlan } from "@/types/page";
 import Link from "next/link";
 import Image from "next/image";
 import { IoMdCheckmark } from "react-icons/io";
@@ -6,24 +6,24 @@ import { IoCloseSharp } from "react-icons/io5";
 import { IoMdTime } from "react-icons/io";
 import { TbFlameFilled } from "react-icons/tb";
 import { FaStar } from "react-icons/fa";
-import { useContext,} from "react";
+import { useContext } from "react";
 import { FitContext } from "@/context/FitProvider";
+import { toast } from "react-toastify";
 
 const PlanCard = ({ add }: IPlan) => {
   const { id, image, name, equipment, duration, rating, caloriesBurned } = add;
   const contextPlan = useContext(FitContext);
-  
+
   if (!contextPlan) {
     throw new Error("PlanCard must be inside FitProvider");
   }
-  
+
   const { setAddWorkout } = contextPlan;
-  
-  const handleRemove = (id:number) => {
+
+  const handleRemove = (id: number) => {
     // console.log('add there',add)
-    setAddWorkout((plan) =>
-      plan.filter((item) => item.id !== id )
-    );
+    setAddWorkout((plan) => plan.filter((item) => item.id !== id));
+    toast.error("Remove from today’s plan");
   };
 
   return (
@@ -86,7 +86,6 @@ const PlanCard = ({ add }: IPlan) => {
           Mark as Done
         </button>
 
-       
         <button
           type="button"
           onClick={() => handleRemove(add.id)}

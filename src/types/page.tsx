@@ -28,3 +28,4 @@ export interface IPlan {
   add: IWorkout;
 }
 
+export type sortbyType = 'duration' |  'caloriesBurned' | 'rating'
