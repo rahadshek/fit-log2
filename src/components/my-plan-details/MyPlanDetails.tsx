@@ -41,44 +41,53 @@ const MyPlanDetails = () => {
   const saveSortBy = sortFit(saveWorkout);
 
   return (
-    <div className="w-full">
+    <div className="mx-auto w-full min-w-0">
       {/* Tabs and Sort By */}
-      <div className="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
-        <div className="inline-flex w-fit items-center gap-1 rounded-xl border border-gray-800 bg-[#15171d] p-1">
+      <div className="mb-5 flex w-full min-w-0 flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        {/* Tabs */}
+        <div className="flex w-full min-w-0 items-center gap-3 rounded-xl border border-gray-800 bg-[#15171d] p-1 sm:w-fit">
           <button
             type="button"
             onClick={() => setActiveTab("plan")}
-            className={`rounded-lg px-4 py-2 text-sm transition-all duration-200 sm:text-base ${
+            aria-pressed={activeTab === "plan"}
+            className={`min-w-0 flex-1 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm transition-all duration-200 sm:flex-none sm:px-5 sm:text-base  ${
               activeTab === "plan"
                 ? "border border-gray-700 bg-[#20232b] font-bold text-[#ccff00]"
                 : "text-gray-400 hover:text-white"
             }`}
           >
-            Today&apos;s Plan 
+            Today&apos;s Plan
           </button>
 
           <button
             type="button"
             onClick={() => setActiveTab("saved")}
-            className={`rounded-lg px-4 py-2 text-sm transition-all duration-200 sm:text-base ${
+            aria-pressed={activeTab === "saved"}
+            className={`min-w-0 flex-1 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm transition-all duration-200 sm:flex-none sm:px-5 sm:text-base ${
               activeTab === "saved"
                 ? "border border-gray-700 bg-[#20232b] font-bold text-[#ccff00]"
                 : "text-gray-400 hover:text-white"
             }`}
           >
-            Saved 
+            Saved
           </button>
         </div>
 
-        <div className="flex items-center gap-3 self-end sm:self-auto">
-          <span className="text-sm text-gray-400">Sort By</span>
-          <SortBy sortBy={sortBy} setSortBy={setSortBy} />
+        {/* Sort By */}
+        <div className="flex w-full items-center justify-between gap-3 sm:w-auto sm:justify-end">
+          <span className="shrink-0 text-sm text-gray-400 sm:text-base">
+            Sort By
+          </span>
+
+          <div className="min-w-0">
+            <SortBy sortBy={sortBy} setSortBy={setSortBy} />
+          </div>
         </div>
       </div>
 
       {/* Today's Plan */}
       {activeTab === "plan" && (
-        <div className="grid w-full grid-cols-1 gap-6">
+        <div className="grid w-full min-w-0 grid-cols-1 gap-4 sm:gap-6">
           {planSortBy.length > 0 ? (
             planSortBy.map((workout: IWorkout) => (
               <PlanCard key={workout.id} add={workout} />
@@ -91,7 +100,7 @@ const MyPlanDetails = () => {
 
       {/* Saved Workouts */}
       {activeTab === "saved" && (
-        <div className="grid w-full grid-cols-1 gap-6">
+        <div className="grid w-full min-w-0 grid-cols-1 gap-4 sm:gap-6">
           {saveSortBy.length > 0 ? (
             saveSortBy.map((workout: IWorkout) => (
               <SaveCard key={workout.id} add={workout} />

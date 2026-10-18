@@ -1,8 +1,8 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { FitContext } from "@/context/FitProvider";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useContext } from "react";
 
 const Plan = () => {
@@ -18,13 +18,15 @@ const Plan = () => {
   return (
     <div>
       <Link
-        href="/my-plan"
-        className={`flex items-center gap-2 text-gray-400 ${
-          pathTheme === "/my-plan" ? "font-semibold text-white" : ""
+        href="/listed-data/plan"
+        className={`flex items-center gap-1.5 rounded-lg border px-2.5 py-2 text-sm font-medium transition-all duration-200 sm:gap-2 sm:px-3 sm:text-base ${
+          pathTheme === "/listed-data/plan"
+            ? "border-[#ccff00]/50 bg-[#ccff00]/10 font-semibold text-[#ccff00] shadow-sm shadow-[#ccff00]/5"
+            : "border-transparent text-gray-400 hover:border-gray-700 hover:bg-white/5 hover:text-white"
         }`}
       >
         Plan
-        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#b7e707] px-1 text-xs text-black">
+        <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-[#b7e707] px-1 text-xs text-black">
           {addWorkout.length}
         </span>
       </Link>

@@ -15,10 +15,12 @@ const Save = () => {
   return (
     <div>
       <Link
-        href="/my-plan"
-        className={`flex items-center gap-1 text-gray-400 ${
-          pathTheme === "/my-plan" ? "font-semibold text-white" : ""
-        } `}
+        href="/listed-data/save"
+        className={`flex items-center gap-2 rounded-lg border px-2.5 py-2 text-sm font-medium transition-all duration-200 sm:gap-2.5 sm:px-3 sm:text-base ${
+          pathTheme === "/listed-data/save"
+            ? "border-[#ccff00]/60 bg-[#ccff00]/10 font-semibold text-[#ccff00] shadow-sm shadow-[#ccff00]/5"
+            : "border-transparent text-gray-400 hover:border-gray-700 hover:bg-white/5 hover:text-white"
+        }`}
       >
         Save{" "}
         <span

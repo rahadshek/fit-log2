@@ -1,3 +1,4 @@
+"use client";
 import { IPlan } from "@/types/page";
 import Link from "next/link";
 import React, { useContext } from "react";
