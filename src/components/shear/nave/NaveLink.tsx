@@ -17,8 +17,8 @@ const NaveLink = () => {
       </li>
       <li>
         <Link
-          href={"/plan"}
-          className={` rounded-xl px-3 py-1  ${pathTheme === "/plan" ? "bg-[#5d7449] text-[#C2F800] font-semibold" : "text-gray-400"}`}
+          href={"/my-plan"}
+          className={` rounded-xl px-3 py-1  ${pathTheme === "/my-plan" ? "bg-[#5d7449] text-[#C2F800] font-semibold" : "text-gray-400"}`}
         >
           My Plan
         </Link>

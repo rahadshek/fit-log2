@@ -2,8 +2,8 @@ import { IWorkout } from "@/types/page";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
-import AddWorkout from "@/componet/workoutbutton/AddWorkout";
-import SaveWorkout from "@/componet/workoutbutton/SaveWorkout";
+import AddWorkout from "@/components/workoutbutton/AddWorkout";
+import SaveWorkout from "@/components/workoutbutton/SaveWorkout";
 
 interface IPramasProps {
   params: Promise<{ workoutId: string }>;
@@ -133,8 +133,8 @@ const WorkoutDetailsPage = async ({ params }: IPramasProps) => {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <AddWorkout workout={workout} ></AddWorkout>
-            <SaveWorkout workout = {workout} ></SaveWorkout>
+            <AddWorkout workout={workout}></AddWorkout>
+            <SaveWorkout workout={workout}></SaveWorkout>
           </div>
         </div>
       </div>

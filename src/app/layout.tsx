@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import NavBarPage from "@/componet/shear/nave/NavBar";
-import Footer from "@/componet/home/Footer";
+import NavBarPage from "@/components/shear/nave/NavBar";
+import Footer from "@/components/home/Footer";
 import { Suspense } from "react";
 import FitProvider from "@/context/FitProvider";
 import { ToastContainer } from "react-toastify";
@@ -30,7 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col ">
         <FitProvider>
           <Suspense fallback="">
             <NavBarPage></NavBarPage>

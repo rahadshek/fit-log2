@@ -24,4 +24,7 @@ export interface IFitContext {
 export interface IProps {
   workout: IWorkout;
 }
+export interface IPlan {
+  add: IWorkout;
+}
 

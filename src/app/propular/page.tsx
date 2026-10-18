@@ -1,4 +1,4 @@
-import FitCard from "@/componet/home/workoutCard";
+import FitCard from "@/components/home/workoutCard";
 import { IWorkout } from "@/types/page";
 import Link from "next/link";
 
