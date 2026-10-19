@@ -1,9 +1,11 @@
+
 "use client";
+
 import { IPlan } from "@/types/page";
 import Link from "next/link";
-import  { useContext } from "react";
+import { useContext } from "react";
 import { FaStar } from "react-icons/fa";
-import {  IoMdTime } from "react-icons/io";
+import { IoMdTime } from "react-icons/io";
 import { IoCloseSharp } from "react-icons/io5";
 import { TbFlameFilled } from "react-icons/tb";
 import Image from "next/image";
@@ -11,19 +13,32 @@ import { FitContext } from "@/context/FitProvider";
 import { toast } from "react-toastify";
 
 const SaveListCard = ({ add }: IPlan) => {
-  const { id, image, name, equipment, duration, rating, caloriesBurned } = add;
+  const {
+    id,
+    image,
+    name,
+    equipment,
+    duration,
+    rating,
+    caloriesBurned,
+  } = add;
+
   const contextPlan = useContext(FitContext);
 
   if (!contextPlan) {
-    throw new Error("PlanCard must be inside FitProvider");
+    throw new Error("SaveListCard must be inside FitProvider");
   }
 
   const { setSaveWorkout } = contextPlan;
+
   const handleRemove = (id: number) => {
-    // console.log('add there',add)
-    setSaveWorkout((plan) => plan.filter((item) => item.id !== id));
-    toast.error("Remove from save");
+    setSaveWorkout((plan) =>
+      plan.filter((item) => item.id !== id)
+    );
+
+    toast.error("Removed from saved workouts");
   };
+
   return (
     <div className="group flex flex-col gap-5 rounded-2xl border border-white/10 bg-[#15171d] p-4 transition-all duration-300 hover:border-[#ccff00]/40 hover:bg-[#191b22] sm:p-5 lg:flex-row lg:items-center lg:justify-between">
       {/* Workout Information */}
@@ -45,7 +60,9 @@ const SaveListCard = ({ add }: IPlan) => {
             {name}
           </h3>
 
-          <p className="mt-1 truncate text-sm text-gray-400">{equipment}</p>
+          <p className="mt-1 truncate text-sm text-gray-400">
+            {equipment}
+          </p>
 
           {/* Workout Stats */}
           <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gray-300 sm:text-sm">
@@ -59,10 +76,10 @@ const SaveListCard = ({ add }: IPlan) => {
               {caloriesBurned} kcal
             </span>
 
-            <div className="flex min-w-0 items-center gap-1.5">
+            <span className="flex min-w-0 items-center gap-1.5">
               <FaStar className="shrink-0 text-lg text-yellow-400" />
               <span className="truncate">{rating}</span>
-            </div>
+            </span>
           </div>
         </div>
       </div>
@@ -78,9 +95,9 @@ const SaveListCard = ({ add }: IPlan) => {
 
         <button
           type="button"
-          onClick={() => handleRemove(add.id)}
-          aria-label={`Remove ${name} from plan`}
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 text-gray-400 transition-all hover:border-red-500/40 hover:bg-red-500/10 hover:text-red-400 cursor-pointer"
+          onClick={() => handleRemove(id)}
+          aria-label={`Remove ${name} from saved workouts`}
+          className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/10 text-gray-400 transition-all hover:border-red-500/40 hover:bg-red-500/10 hover:text-red-400"
         >
           <IoCloseSharp className="text-xl" />
         </button>

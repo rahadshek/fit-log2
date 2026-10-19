@@ -1,8 +1,5 @@
-
 "use client";
-
 import { sortbyType } from "@/types/page";
-import { FaSortAmountDown } from "react-icons/fa";
 
 interface ISortByProps {
   sortBy: sortbyType;

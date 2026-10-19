@@ -7,7 +7,7 @@ import { IWorkout, sortbyType } from "@/types/page";
 import SaveCard from "./card/SaveCard";
 import PlanCard from "./card/PlanCard";
 import EmptyCard from "./card/EmptyCard";
-import SortBy from "./SortBy";
+import SortBy from "./sort-by/SortBy";
 
 type ActiveTab = "plan" | "saved";
 

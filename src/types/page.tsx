@@ -29,3 +29,4 @@ export interface IPlan {
 }
 
 export type sortbyType = 'duration' |  'caloriesBurned' | 'rating'
+
