@@ -83,7 +83,7 @@ const PlanListCard = ({ add }: IPlan) => {
           type="button"
           className="flex min-h-10 flex-1 items-center justify-center gap-1.5 rounded-full bg-[#ccff00] px-3 py-2 text-sm font-bold text-black transition-all hover:bg-[#b8e600] active:scale-95 sm:flex-none sm:px-4"
         >
-          <IoMdCheckmark  className="text-lg" />
+          <IoMdCheckmark className="text-lg" />
           Mark as Done
         </button>
 

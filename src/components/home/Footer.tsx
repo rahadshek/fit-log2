@@ -4,23 +4,18 @@ import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
-    <div className=" bg-[#0f0f0f]  sticky bottom-0 z-50">
-      <footer className=" container mx-auto footer sm:footer-horizontal text-neutral-content items-center p-4">
-        <aside className="grid-flow-col items-center">
-          <Link href={"/"}>
-            <div className="flex gap-2  ">
-              <Image src={logo} alt="logo" width={40} height={40} />
-              <h2 className=" btn-ghost text-xl font-semibold hidden lg:block ">
-                FITLOG
-              </h2>
-            </div>
-          </Link>
-        </aside>
-        <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end text-gray-400">
-          © 2026 FitLog — Workout Library. Train hard, log honest.
-        </nav>
-      </footer>
-    </div>
+    <footer className="container mx-auto flex flex-col items-center justify-center gap-3 p-4 text-neutral-content sm:flex-row sm:justify-between">
+      <aside className="flex w-full justify-center sm:w-auto">
+        <Link href="/" className="flex items-center justify-center gap-2">
+          <Image src={logo} alt="logo" width={40} height={40} />
+          <h2 className="text-xl font-semibold">FITLOG</h2>
+        </Link>
+      </aside>
+
+      <nav className="w-full text-center text-gray-400 sm:w-auto">
+        © 2026 FitLog — Workout Library. Train hard, log honest.
+      </nav>
+    </footer>
   );
 };
 

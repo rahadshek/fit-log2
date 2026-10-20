@@ -13,7 +13,7 @@ const Myplan = () => {
           Cap of five lifts for today. Finish them, then load more.
         </p>
       </div>
-
+      
       <MyPlanDetails />
     </div>
   );

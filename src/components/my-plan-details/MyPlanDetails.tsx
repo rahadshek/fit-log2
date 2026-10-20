@@ -8,6 +8,7 @@ import SaveCard from "./card/SaveCard";
 import PlanCard from "./card/PlanCard";
 import EmptyCard from "./card/EmptyCard";
 import SortBy from "./sort-by/SortBy";
+import OverviewCard from "../overview/OverviewCard";
 
 type ActiveTab = "plan" | "saved";
 
@@ -41,6 +42,8 @@ const MyPlanDetails = () => {
   const saveSortBy = sortFit(saveWorkout);
 
   return (
+    <div>
+      <OverviewCard activeTab = {activeTab} />
     <div className="mx-auto w-full min-w-0">
       {/* Tabs and Sort By */}
       <div className="mb-5 flex w-full min-w-0 flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -110,6 +113,7 @@ const MyPlanDetails = () => {
           )}
         </div>
       )}
+    </div>
     </div>
   );
 };
