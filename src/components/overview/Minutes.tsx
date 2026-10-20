@@ -22,10 +22,16 @@ const Minutes = ({ activeTab }: MinutesProps) => {
     0,
   );
   const totalMinutes = activeTab === "plan" ? planMinutes : saveMinutes;
+
   return (
-    <div>
-      <h2 className="text-gray-400">Minutes</h2>
-      <h2 className="font-semibold text-5xl">{totalMinutes}</h2>
+    <div className="flex flex-col items-center gap-2 text-center lg:items-start lg:text-left">
+      <h2 className="text-sm font-medium text-gray-400 sm:text-base">
+        Minutes
+      </h2>
+
+      <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+        {totalMinutes}
+      </h2>
     </div>
   );
 };
